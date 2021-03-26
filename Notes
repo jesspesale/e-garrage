@@ -1,0 +1,64 @@
+Spring #1
+User Functionality
+    /register
+    /login
+    /logout
+
+User
+    authrntication
+    email/password
+    unique emails
+ has many recipes
+
+
+get '/' do            a form to log in or a link to a sign up page
+    erb :'/users/index'
+end
+
+post "/signup" do
+ user = User.new(:username => params[:username], :password => params[:password])
+ 
+ if user.save
+   redirect "/login"
+ else
+   redirect "/failure"
+ end
+end
+
+post "/login" do
+ user = User.find_by(:username => params[:username])
+ 
+ if user && user.authenticate(params[:password])
+   session[:user_id] = user.id
+   redirect "/success"
+ else
+   redirect "/failure"
+ end
+End
+
+
+
+
+
+
+
+get '/users'            index page to display all users w/ link to their profile (and amybe some recipe names)
+    erb :'/users/show'
+end
+
+get '/users/:id'           A users a users profile - name, recipes names w/ links to recipe page
+
+end
+
+get '/recipes/new' do       the form for creating a new recipe
+    erb :'/recipes/new'
+end
+
+post '/recipes' do
+    @recipe = Recipe.create(name: params[:name]), ingredients: params[:ingredients]...)
+
+    redirect to '/recipes/
+end 
+
+
+
