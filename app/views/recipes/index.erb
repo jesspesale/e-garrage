@@ -1,0 +1,13 @@
+<h2> Here are your recipes</h2>
+<br>
+
+
+
+    <% if logged_in? %>
+    Logged in as: <%= current_user.email %>
+    <br>
+      <a href="/logout">Logout</a>
+      <% else %>
+      <a href="/signup">Sign Up</a>
+      <a href="/login">Log in</a>
+      <% end %>
