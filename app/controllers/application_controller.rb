@@ -1,7 +1,9 @@
 
 require './config/environment'
+require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
+  use Rack::Flash
 
   configure do
     set :public_folder, 'public'
@@ -19,17 +21,17 @@ class ApplicationController < Sinatra::Base
                   # to the views and controllers of the app
     
     def logged_in?  #using return value of current user to return a true or false value
-      !!current_user
+      !!current_user  
     end
 
     def current_user  #if sess-id exists- find user & set @user
       @user ||= User.find_by(:id => session[:user_id]) if session[:user_id]
-    end #if the user exists true OR
+    end #if @user exists OR
         
 
     def authentication_required
       If !logged_in?
-        flash[:notice] = "You must be logged in."
+        flash[:message] = "You must be logged in."
         redirect '/'
     end
     

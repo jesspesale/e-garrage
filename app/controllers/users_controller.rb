@@ -26,6 +26,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect '/recipes'
         else
+            flash[:message] = "Wrong username or password, please try again."
             erb :'/users/login'
         end
     end
