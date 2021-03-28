@@ -30,6 +30,7 @@ class RecipesController < ApplicationController
             redirect '/recipes'
         else
             erb :'/recipes/new'
+            "Hi"
         end
     end
 
