@@ -10,35 +10,18 @@ User
     unique emails
  has many recipes
 
+ Sprint #2
+ Basic Recipe 
+  New/ create
+  Index
+  Show
 
-get '/' do            a form to log in or a link to a sign up page
-    erb :'/users/index'
-end
-
-post "/signup" do
- user = User.new(:username => params[:username], :password => params[:password])
- 
- if user.save
-   redirect "/login"
- else
-   redirect "/failure"
- end
-end
-
-post "/login" do
- user = User.find_by(:username => params[:username])
- 
- if user && user.authenticate(params[:password])
-   session[:user_id] = user.id
-   redirect "/success"
- else
-   redirect "/failure"
- end
-End
-
-
-
-
+Sprint #3
+Editing recipes
+  have a recipe page display all the traits of a single recipe
+  
+  <input type="text" name="ingredients">
+  <div><label for="instructions">Instructions: </label><textarea name="instructions" id="instructions" rows="20" cols="80" required ></textarea></div>
 
 
 
@@ -60,6 +43,13 @@ post '/recipes' do
     redirect to '/recipes/
 end 
 
+How to submit a list of items in an html form?
+
+
+Need to capatilize the first word of each instruction?
+<% @instructions.collect! do |inst| %>
+    <% inst.capitalize %> 
+     <% end %>
 
 
 

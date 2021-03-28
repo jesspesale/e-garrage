@@ -1,4 +1,18 @@
-<h1> Here is one Recipe: </h1>
+<h1> Here is your recipe for Recipe: <%= @recipe.recipe_name %> </h1>
 
-<h2> <%= @recipe.recipe_name %> </h2>
-<br>
+
+
+<h2> Ingredients: </h2>
+<% @recipe.ingredients.split.each do |ingredient| %>
+ <ul> 
+    <li> <%= ingredient %>   </li>
+</ul>
+  <% end %>
+
+<h2> Instructions: </h2>
+<% instructions = @recipe.instructions.split("\r\n") %>
+    <% instructions.each_with_index do |instruction, i| %>
+ <ol> 
+    <li> <%= i+1 %>. <%= instruction %> </li>
+</ol>
+  <% end %>

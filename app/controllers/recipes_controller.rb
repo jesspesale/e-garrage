@@ -4,8 +4,8 @@ class RecipesController < ApplicationController
     end
 
     get '/recipes' do
-        if logged_in?
-            @recipes = current_user.recipes #bc a user has many recipes we have .recipes
+        if logged_in? #bc a user has many recipes we have .recipes
+            @recipes = current_user.recipes 
             erb :'recipes/index'
         else
             erb :'/layout'
@@ -19,6 +19,8 @@ class RecipesController < ApplicationController
     get '/recipes/:id' do
         # binding.pry
         @recipe = current_user.recipes.find(params[:id])
+        
+        # binding.pry
         erb :"recipes/show"
     end
 
@@ -26,10 +28,9 @@ class RecipesController < ApplicationController
         @recipe = Recipe.new
         @recipe.recipe_name = params[:recipe_name]
         @recipe.ingredients = params[:ingredients]
-        @recipe.recipe = params[:recipe]
+        @recipe.instructions = params[:instructions]
         @recipe.cooktime = params[:cook_time]
         @recipe.user = current_user
-        # binding.pry
 
         if @recipe.save
             redirect '/recipes'
