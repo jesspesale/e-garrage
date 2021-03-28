@@ -1,5 +1,10 @@
-<h2> Here are your recipes</h2>
-<br>
+<h1>Your Recipes</h1>
+
+<ul>
+    <% @recipes.each do |recipe| %>
+    <li> <%=  recipe.recipe_name %>  </li>
+    <% end %>
+ </ul>
 
 
 
@@ -8,6 +13,8 @@
     <br>
     <br>
       <a href="/logout">Logout</a>
+      <br>
+      <a href="/recipes/new">New Recipe</a>
       <% else %>
       <a href="/signup">Sign Up</a>
       <a href="/login">Log in</a>

@@ -1,6 +1,4 @@
-
 require './config/environment'
-require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
   use Rack::Flash
@@ -13,7 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    erb :'welcome'
   end
 
     
@@ -30,9 +28,10 @@ class ApplicationController < Sinatra::Base
         
 
     def authentication_required
-      If !logged_in?
+      if !logged_in?    #make this in red and bold with CSS
         flash[:message] = "You must be logged in."
         redirect '/'
+      end
     end
     
   end
