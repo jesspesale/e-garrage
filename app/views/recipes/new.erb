@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1>New Recipe</h1>
 <h4>Be sure to fill out all appropriate fields</h4>
 <br>
@@ -12,7 +16,7 @@
     <label for="ingredients">Ingredients 
     <br> <h5>Put each ingredient on a new line: </h5>
     </label>
-    <textarea form="recipes" name="ingredients" rows="15" cols="60" required ></textarea>
+    <textarea name="ingredients" id="ingredients" rows="15" cols="60" required ></textarea>
     <br>
 
     </h4>

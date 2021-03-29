@@ -2,7 +2,8 @@
 
 <br>
 <h2> Ingredients: </h2>
-<% @recipe.ingredients.split.each do |ingredient| %>
+<% ingredients = @recipe.ingredients.split("\r\n") %>
+     <% ingredients.each do |ingredient| %>
  <ul> 
     <li> <%= ingredient %>   </li>
 </ul>
@@ -21,6 +22,6 @@
 <br>
 <br>
 <br>
-<h4>If you would like to make some changes to your recipe, click edit.</h4>
+<h4>If you would like to make some changes or delete your recipe, click edit.</h4>
 <br>
 <a href="/recipes/<%= @recipe.id %>/edit">Edit</a></td>
