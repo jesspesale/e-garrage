@@ -12,10 +12,12 @@ class RecipesController < ApplicationController
         end
     end
     
+    # Create
     get '/recipes/new' do
         erb :'/recipes/new'
     end
 
+    # Read
     get '/recipes/:id' do
         if logged_in?
             @recipe = current_user.recipes.find(params[:id])
@@ -45,6 +47,7 @@ class RecipesController < ApplicationController
         end
     end
 
+    # Update
     get '/recipes/:id/edit' do 
         if logged_in?
             @recipe = Recipe.find_by_id(params[:id])
@@ -78,6 +81,7 @@ class RecipesController < ApplicationController
     # end
     # end
 
+    # Delete / Destroy
     delete '/recipes/:id' do 
         @recipe = Recipe.find(params[:id])
         @recipe.destroy
