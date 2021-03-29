@@ -7,7 +7,11 @@ A user can create an account and keep track of recipes by their name, ingredient
 <br>
 
 ## Instalattion 
-You can forke and clone this repo from https://github.com/jesspesale/recipe-safe. Open it up in the proper directory, run bundle install (to install all gems) and run shotgun to start the server.
+You can fork and clone this repo from https://github.com/jesspesale/recipe-safe. Open it up in the proper directory, run bundle install (to install all gems) and run shotgun to start the server.
 
-## C
+## Contributing
+After forking and cloning this lab you are welcome to make any additions that would improve this app. You can make pull requests to https://github.com/jesspesale/recipe-safe.
 
+
+## License
+This web app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
