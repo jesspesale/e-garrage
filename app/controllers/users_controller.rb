@@ -5,8 +5,12 @@ class UsersController < ApplicationController
     end
 
     post '/users' do
-        @user = User.new(name: params[:username], email: params[:email], password: params[:password])
-
+        if params[:name] == "" || params[:email] == "" || params[:password] == ""
+            flash[:message] = "Please make sure you fill out all fields."
+            redirect "/signup"
+        else
+            @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+        end
         if @user.save
             session[:user_id] = @user.id
             redirect '/recipes'

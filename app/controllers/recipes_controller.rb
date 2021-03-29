@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
     get '/recipes' do
         if logged_in? #bc a user has many recipes we have .recipes
             @recipes = current_user.recipes 
+            # binding.pry
             erb :'recipes/index'
         else
             erb :'/layout'
@@ -72,5 +73,12 @@ class RecipesController < ApplicationController
     #     end
     # end
     # end
+
+    delete '/recipes/:id' do 
+        @recipe = Recipe.find(params[:id])
+        @recipe.destroy
+
+        redirect '/recipes'
+    end
 
 end

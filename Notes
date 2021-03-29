@@ -1,39 +1,16 @@
-Spring #1
-User Functionality
-    /register
-    /login
-    /logout
+How to only let a user sign up with one email
+Validate uniqueness of user login attribute (username or email).
 
-User
-    authrntication
-    email/password
-    unique emails
- has many recipes
-
- Sprint #2
- Basic Recipe 
-  New/ create
-  Index
-  Show
-
-Sprint #3
-Editing recipes
-  have a recipe page display all the traits of a single recipe
-  
-  <input type="text" name="ingredients">
-  <div><label for="instructions">Instructions: </label><textarea name="instructions" id="instructions" rows="20" cols="80" required ></textarea></div>
-
-
-
-How to submit a list of items in an html form?
-
+Ensure that users can edit and delete only their own resources - not resources created by other users.
 
 Need to capatilize the first word of each instruction?
 <% @instructions.collect! do |inst| %>
     <% inst.capitalize %> 
      <% end %>
 
-How to display the previous ingredients and instructions on the edit form:
+
+How to submit a list of items in an html form?
+How to display the previous ingredients and instructions on the edit form?
 
 
 

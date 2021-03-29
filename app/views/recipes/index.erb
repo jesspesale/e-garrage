@@ -1,7 +1,9 @@
-<h2>Your Recipe Safe </h2>
+<h1>Welcome <%= current_user.name %>!</h1>
+
+<h2>Here is your Recipe Safe: </h2>
 
 <% if @recipes.empty? %>
-<h3>You currently have no recipes, let's make a new one!</h3>
+<h5>You currently have no recipes, let's make a new one!</h5>
 <% else %>
 <h3>Here's all of your recipes:</h3>
 <ol>
