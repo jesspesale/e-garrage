@@ -17,11 +17,12 @@ class RecipesController < ApplicationController
     end
 
     get '/recipes/:id' do
-        # binding.pry
-        @recipe = current_user.recipes.find(params[:id])
-        
-        # binding.pry
-        erb :"recipes/show"
+        if logged_in?
+            @recipe = current_user.recipes.find(params[:id])
+            erb :"recipes/show"
+        else
+            redirect "/users/login"
+        end
     end
 
     post '/recipes' do
@@ -39,5 +40,37 @@ class RecipesController < ApplicationController
         end
     end
 
+    get '/recipes/:id/edit' do 
+        if logged_in?
+            @recipe = Recipe.find_by_id(params[:id])
+            if @recipe && @recipe.user == current_user
+                erb :'/recipes/edit'
+            else
+                redirect to '/recipes'
+            end
+        else
+            redirect to '/users/login'
+        end
+    end
+
+    # patch '/recipes/:id' do
+    #     if logged_in?
+    #         if params[:recipe_name] == "" || params[:ingredients] == "" || params[:instructions] == "" || params[:cooktime] == ""
+    #             redirect "/recipes/#{params[:id]}/edit"
+    #         elsif
+    #             @recipe = Recipe.find(params[:id])
+    #             @recipe.update(
+    #                     recipe_name: params[:recipe_name]
+    #                     ingredients: params[:ingredients]
+    #                     instructions: params[:instructions]
+    #                     cooktime:      params[:cooktime]
+    #             )
+    #             redirect "/recipes/#{@recipe.id}"
+    #             end
+    #     else
+    #         redirect "/recipes/:id/edit"
+    #     end
+    # end
+    # end
 
 end

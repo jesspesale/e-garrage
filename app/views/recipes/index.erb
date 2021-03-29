@@ -6,7 +6,9 @@
 <h3>Here's all of your recipes:</h3>
 <ol>
     <% @recipes.each do |recipe| %>
-    <li><a href="/recipes/<%=recipe.id%>"><%=  recipe.recipe_name %></a> </li>
+    <li><a href="/recipes/<%=recipe.id%>"><%=  recipe.recipe_name %></a> 
+   <a href="/recipes/<%= recipe.id %>/edit">Edit</a></td>
+    </li>
     <% end %>
     <% end %>
  </ol>
