@@ -2,7 +2,7 @@
 
 <br>
 <h2> Ingredients: </h2>
-<% ingredients = @recipe.ingredients.split("\r\n") %>
+<% ingredients = @recipe.ingredients.split(",") %>
      <% ingredients.each do |ingredient| %>
  <ul> 
     <li> <%= ingredient %>   </li>
@@ -10,7 +10,7 @@
   <% end %>
 <br>
 <h2> Instructions: </h2>
-<% instructions = @recipe.instructions.split("\r\n") %>
+<% instructions = @recipe.instructions.split(".") %>
     <% instructions.each_with_index do |instruction, i| %>
  <ol> 
     <li> <%= i+1 %>. <%= instruction %> </li>
@@ -22,6 +22,12 @@
 <br>
 <br>
 <br>
-<h4>If you would like to make some changes or delete your recipe, click edit.</h4>
+<h4>Feel free to edit or delete your recipe.</h4>
 <br>
 <a href="/recipes/<%= @recipe.id %>/edit">Edit</a></td>
+<br>
+<br>
+  <form action="/recipes/<%= @recipe.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+  </form> 

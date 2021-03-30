@@ -5,13 +5,14 @@
   Name:  <input type="text" value="<%= @recipe.recipe_name %>" name="recipe_name"><br>
   <br>
   Ingredients
-  <h5>Put each step on a new line: </h5>
-      <textarea name="ingredients" id="ingredients" rows="15" cols="60" required ></textarea>
+  <h5>Please separate each ingredient with a comma (,) </h5>
+  <input type="text" minlength="4" maxlength="100" size="50" name="ingredients" value="<%= @recipe.ingredients %>"/> 
+
   <br>
   <br>
    Instructions
-    <h5>Put each step on a new line: </h5>
-    <textarea name="instructions" id="instructions" value="<%=@recipe.instructions%>" rows="15" cols="80" required ></textarea>
+    <h5>Please separate each new instruction with a period (.) </h5>
+    <input type="text" minlength="4" maxlength="100" size="50" name="instructions" value="<%= @recipe.instructions%>"/> 
   <br>
   Cook Time: <input type="text" value="<%=@recipe.cooktime %>" name="cooktime">
   <br>

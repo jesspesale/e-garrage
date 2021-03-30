@@ -61,25 +61,21 @@ class RecipesController < ApplicationController
         end
     end
 
-    # patch '/recipes/:id' do
-    #     if logged_in?
-    #         if params[:recipe_name] == "" || params[:ingredients] == "" || params[:instructions] == "" || params[:cooktime] == ""
-    #             redirect "/recipes/#{params[:id]}/edit"
-    #         elsif
-    #             @recipe = Recipe.find(params[:id])
-    #             @recipe.update(
-    #                     recipe_name: params[:recipe_name]
-    #                     ingredients: params[:ingredients]
-    #                     instructions: params[:instructions]
-    #                     cooktime:      params[:cooktime]
-    #             )
-    #             redirect "/recipes/#{@recipe.id}"
-    #             end
-    #     else
-    #         redirect "/recipes/:id/edit"
-    #     end
-    # end
-    # end
+    patch '/recipes/:id' do
+        if logged_in?
+            @recipe = Recipe.find(params[:id])
+               @recipe.update(
+                #    params[:recipe])
+                        recipe_name: params[:recipe_name],
+                        ingredients: params[:ingredients],
+                        instructions: params[:instructions],
+                        cooktime: params[:cooktime] 
+                        )
+            redirect "/recipes/#{@recipe.id}"
+        else
+            redirect "/recipes/:id/edit"
+        end
+    end
 
     # Delete / Destroy
     delete '/recipes/:id' do 
