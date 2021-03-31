@@ -1,23 +1,28 @@
-<h1>Welcome <%= current_user.name %>!</h1>
-
-<h2>Here is your Recipe Safe: </h2>
+<h1>Welcome <%= current_user.name %> </h1>
+<br>
+<h2>Here is your Recipe Safe:</h2>
 
 <% if @recipes.empty? %>
 <h5>You currently have no recipes, let's make a new one!</h5>
 <% else %>
-<h3>Here's all of your recipes:</h3>
+<h3>Your Recipes:</h3>
+<br>
+<h5>Click on the recipe name too see the full recipe</h5>
+<br>
 <ol>
     <% @recipes.each do |recipe| %>
     <li><a href="/recipes/<%=recipe.id%>"><%=  recipe.recipe_name %></a> 
-   <a href="/recipes/<%= recipe.id %>/edit">Edit</a></td>
+   <a href="/recipes/<%= recipe.id %>/edit"> Edit</a></td>
     </li>
     <% end %>
     <% end %>
  </ol>
  <br>
+ <br>
+ <br>
 <a href="/recipes/new">New Recipe</a>
 
-<br> <br> <br> <br>
+<br> <br> <br> 
     <% if logged_in? %>
     Logged in as: <%= current_user.email %>
     <br>
