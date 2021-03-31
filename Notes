@@ -7,6 +7,7 @@ Ensure that users can edit and delete only their own resources - not resources c
   Can users even see other recipes?
 
 Need to capatilize the first word of each instruction?
+.capitalize is only capitilzie the first list item?
 <% @instructions.collect! do |inst| %>
     <% inst.capitalize %> 
      <% end %>
@@ -15,7 +16,8 @@ Need to capatilize the first word of each instruction?
 How to submit a list of items in an html form?
     Is there a way to do a numbered list or bigger text box (textera)
 
-How to display the previous ingredients and instructions on the edit form?
+How to display the previous ingredients and instructions on the edit form? 
+  with textera this doesnt work (a bigger text box) but it does with input
 
 How to move the  "edit" button more to the right when looking at your ingredients
 
