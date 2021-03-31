@@ -6,16 +6,17 @@ class UsersController < ApplicationController
 
     post '/users' do
         if params[:name] == "" || params[:email] == "" || params[:password] == ""
-            flash[:message] = "Please make sure you fill out all fields."
+            flash[:message] = "Please make sure you fill out all fields correctly (please note an email can only create one account)."
             redirect "/signup"
         else
-            @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+            @user = User.new(params)
+            # (name: params[:name], email: params[:email], password: params[:password])
         end
         if @user.save
             session[:user_id] = @user.id
             redirect '/recipes'
         else
-            redirect '/users/signup'
+            redirect '/signup'
         end
     end
 
