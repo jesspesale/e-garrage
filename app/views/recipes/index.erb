@@ -1,14 +1,14 @@
-<h1>Welcome <%= current_user.name %> </h1>
+<h1>Hello <%= current_user.name %>! </h1>
 <br>
-<h2>Here is your Recipe Safe:</h2>
+<h2>Welcome to your Recipe Safe:</h2>
 
 <% if @recipes.empty? %>
 <h5>You currently have no recipes, let's make a new one!</h5>
 <% else %>
-<h3>Your Recipes:</h3>
-<br>
-<h5>Click on the recipe name too see the full recipe</h5>
-<br>
+<p>If you would like to delete a recipe click the "edit" button for that recipe.</p>
+<p>Click on the recipe name to see the full recipe.</p>
+
+<h2>Your Recipes:</h2>
 <ol>
     <% @recipes.each do |recipe| %>
     <li><a href="/recipes/<%=recipe.id%>"><%=  recipe.recipe_name %></a> 
@@ -20,9 +20,11 @@
  <br>
  <br>
  <br>
+ <br>
+ <br>
 <a href="/recipes/new">New Recipe</a>
 
-<br> <br> <br> 
+<br> <br> 
     <% if logged_in? %>
     Logged in as: <%= current_user.email %>
     <br>
