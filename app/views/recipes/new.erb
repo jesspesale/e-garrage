@@ -8,29 +8,29 @@
 <form action="/recipes" method="post" id="recipe">
     <h4>
     <label for="recipe_name">Recipe Name: </label>
-    <input type="text" placeholder="Enter Recipe name" name="recipe_name">
+    <input type="text" placeholder="Enter recipe name" name="recipe_name">
     <br>
     </h4>
     <br>
     <h4>
-    <label for="ingredients">Ingredients 
-    <br> <h5>Please separate each ingredient with a comma (,) </h5>
-    </label>
-    <input type="text" minlength="4" maxlength="100" size="50" name="ingredients" id="ingredients" /> 
+    <label for="ingredients">Ingredients:  </label>
+    <br> 
+   
+    <input type="text" minlength="4" maxlength="100" size="60" name="ingredients" id="ingredients" placeholder="Please separate each ingredient with a comma ( , ) "/> 
     <br>
 
     </h4>
     <br>
     <h4>
     <label for="instructions">Instructions </label>
-    <br> <h5>Please separate each new instruction with a comma (,) </h5>
-    <input type="text" minlength="4" maxlength="100" size="50" name="instructions" id="instructions" /> 
+    <br> 
+    <input type="text" minlength="4" maxlength="100" size="60" name="instructions" id="instructions" placeholder="Please separate each new instruction with a period ( . ) " /> 
     <br>
     </h4>
     <br>
     <h4>
-    <label for="cook_time">Cook Time (in minutes): </label> 
-    <input type="text" name="cook_time">
+    <label for="cook_time">Cook Time: </label> 
+    <input type="text" name="cook_time" placeholder="  in minutes ">
     </h4>
     <br>
     <input type="submit" value="Create New Recipe">
