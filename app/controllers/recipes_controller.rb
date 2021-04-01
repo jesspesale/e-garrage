@@ -23,7 +23,6 @@ class RecipesController < ApplicationController
             @recipe = current_user.recipes.find(params[:id])
             @ingredients = @recipe.ingredients.split("\r\n")
             @instructions = @recipe.instructions.split("\r\n")
-            # binding.pry
             erb :"recipes/show"
         else
             redirect "/users/login"

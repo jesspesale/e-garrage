@@ -5,15 +5,13 @@
   Name:  <input type="text" value="<%= @recipe.recipe_name %>" name="recipe_name"><br>
   <br>
   Ingredients
-  <h5>Please separate each ingredient with a comma (,) </h5>
-    <textarea name="ingredients" value="<%= @recipe.ingredients %>" id="ingredients" rows="15" cols="60" ></textarea>
+    <textarea name="ingredients" id="ingredients" rows="15" cols="60" ><%= @recipe.ingredients.split("\r\n").join("\n") %></textarea>
 
   <br>
   <br>
    Instructions
-    <h5>Please separate each new instruction with a period (.) </h5>
      
-    <textarea name="instructions" placeholder="Put each instruction on a new line" rows="15" cols="60" ></textarea>
+    <textarea name="instructions" placeholder="Put each instruction on a new line" rows="15" cols="60" ><%= @recipe.instructions.split("\r\n").join("\n") %></textarea>
   <br>
   Cook Time: <input type="text" value="<%=@recipe.cooktime %>" name="cooktime">
   <br>
