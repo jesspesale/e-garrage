@@ -46,7 +46,7 @@ class RecipesController < ApplicationController
         @recipe.user = current_user
         end
         if @recipe.save
-            redirect '/recipes'
+            redirect "/recipes/#{@recipe.id}"
         else
             erb :'/recipes/new'
         end
@@ -56,6 +56,7 @@ class RecipesController < ApplicationController
     get '/recipes/:id/edit' do 
         if logged_in?
             @recipe = Recipe.find_by_id(params[:id])
+            # binding.pry
             if @recipe && @recipe.user == current_user
                 erb :'/recipes/edit'
             else

@@ -6,18 +6,21 @@
   <br>
   Ingredients
   <h5>Please separate each ingredient with a comma (,) </h5>
-  <input type="text" minlength="4" maxlength="100" size="50" name="ingredients" value="<%= @recipe.ingredients %>"/> 
+    <textarea name="ingredients" value="<%= @recipe.ingredients %>" id="ingredients" rows="15" cols="60" ></textarea>
 
   <br>
   <br>
    Instructions
     <h5>Please separate each new instruction with a period (.) </h5>
-    <input type="text" minlength="4" maxlength="100" size="50" name="instructions" value="<%= @recipe.instructions%>"/> 
+     
+    <textarea name="instructions" placeholder="Put each instruction on a new line" rows="15" cols="60" ></textarea>
   <br>
   Cook Time: <input type="text" value="<%=@recipe.cooktime %>" name="cooktime">
   <br>
   <br>
-
+  <a href="/recipes">My Recipes</a>
+  <br>
+  <br>
   <input type="submit" value="Submit Changes">
 
   </form>

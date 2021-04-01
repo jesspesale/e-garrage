@@ -4,15 +4,11 @@ How to get rid of the flash message once going to a new page
 How to edit the colors of the flash message
 
 
-Validate uniqueness of user login attribute (by email). - DONE
   - how to do a flash message just when email is already used
 
 
-Need to capatilize the first word of each instruction?
-.capitalize is only capitilzie the first list item?
-<% @instructions.collect! do |inst| %>
-    <% inst.capitalize %> 
-     <% end %>
+<input type="text" minlength="4" maxlength="100" size="50" name="ingredients" value="<%= @recipe.ingredients %>"/> 
+<input type="text" minlength="4" maxlength="100" size="50" name="instructions" value="<%= @recipe.instructions%>"/> 
 
 
 <h2> Ingredients: </h2>
