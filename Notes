@@ -1,10 +1,12 @@
-Questions
+Questions:
+
+How to get rid of the flash message once going to a new page
+How to edit the colors of the flash message
+
 
 Validate uniqueness of user login attribute (by email). - DONE
   - how to do a flash message just when email is already used
 
-Ensure that users can edit and delete only their own resources - not resources created by other users.
-  Can users even see other recipes?
 
 Need to capatilize the first word of each instruction?
 .capitalize is only capitilzie the first list item?
@@ -13,6 +15,17 @@ Need to capatilize the first word of each instruction?
      <% end %>
 
 
+<h2> Ingredients: </h2>
+// <% ingredients = @recipe.ingredients.split(",") %>
+     <% ingredients.each do |ingredient| %>
+ <ul> 
+    <li> - <%= ingredient %>   </li>
+</ul>
+  <% end %>
+<br>
+
+ <input type="text" minlength="4" maxlength="100" size="60" name="instructions" id="instructions" placeholder="Please separate each new instruction with a period ( . ) " /> 
+
 How to submit a list of items in an html form?
     Is there a way to do a numbered list or bigger text box (textera)
 
@@ -20,10 +33,6 @@ How to display the previous ingredients and instructions on the edit form?
   with textera this doesnt work (a bigger text box) but it does with input
 
 How to move the  "edit" button more to the right when looking at your ingredients
-
-      <textarea name="ingredients" id="ingredients" rows="15" cols="60" required ></textarea>
-      <textarea name="instructions" id="instructions" value="<%=@recipe.instructions%>" rows="15" cols="80" required ></textarea>
-
 
 
 Adding a picture
@@ -39,15 +48,7 @@ recipe-rolodex (cd into it i forked it)
     </small>
 
 
-<h5>Please separate each new instruction with a comma (,) </h5>
 
 
 
 
-    <% if logged_in? %>
-    Logged in as: <%= current_user.email %>
-      <a href="/logout">Logout</a>
-      <% else %>
-      <a href="/signup">Sign Up</a>
-      <a href="/login">Log in</a>
-      <% end %>

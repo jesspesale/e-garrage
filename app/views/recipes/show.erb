@@ -2,18 +2,18 @@
 
 <br>
 <h2> Ingredients: </h2>
-<% ingredients = @recipe.ingredients.split(",") %>
-     <% ingredients.each do |ingredient| %>
+
+     <% @ingredients.each do |ingredient| %>
  <ul> 
-    <li> - <%= ingredient %>   </li>
+    <li> - <%= ingredient.capitalize %>   </li>
 </ul>
   <% end %>
 <br>
+
 <h2> Instructions: </h2>
-<% instructions = @recipe.instructions.split(".") %>
-    <% instructions.each_with_index do |instruction, i| %>
+    <% @instructions.each_with_index do |instruction, i| %>
  <ol> 
-    <li> <%= i+1 %>. <%= instruction %> </li>
+    <li> <%= i+1 %>. <%= instruction.capitalize %> </li>
 </ol>
   <% end %>
 <br>

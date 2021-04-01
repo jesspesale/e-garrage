@@ -21,6 +21,8 @@ class RecipesController < ApplicationController
     get '/recipes/:id' do
         if logged_in?
             @recipe = current_user.recipes.find(params[:id])
+            @ingredients = @recipe.ingredients.split("\r\n")
+            @instructions = @recipe.instructions.split("\r\n")
             # binding.pry
             erb :"recipes/show"
         else
@@ -29,10 +31,13 @@ class RecipesController < ApplicationController
     end
 
     post '/recipes' do
+        # binding.pry
+        # params[:ingredients].split("\r\n").join(",")
         if params[:recipe_name] == "" || params[:ingredients] == "" || params[:instructions] == "" 
             flash[:message] = "Please make sure you fill out all fields."
             redirect "/recipes/new"
         else        
+        
         @recipe = Recipe.new
         @recipe.recipe_name = params[:recipe_name]
         @recipe.ingredients = params[:ingredients]
