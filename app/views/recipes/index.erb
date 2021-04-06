@@ -1,6 +1,6 @@
 <h1>Hello <%= current_user.name %>! </h1>
 <br>
-<h2>Welcome to your Recipe Safe:</h2>
+<h2>Welcome to your Recipe Safe</h2>
 
 <% if @recipes.empty? %>
 <h5>You currently have no recipes, let's make a new one!</h5>
@@ -29,9 +29,9 @@
     Logged in as: <%= current_user.email %>
     <br>
     <br>
-      <a href="/logout">Logout</a>
+      <a class="waves-effect waves-light btn black-text" href="/logout">Logout</a>
       <br>
       <% else %>
-      <a href="/signup">Sign Up</a>
-      <a href="/login">Log in</a>
+      <a class="waves-effect waves-light btn" href="/signup">Sign Up</a>
+      <a class="waves-effect waves-light btn" href="/log in">Log in</a>
       <% end %>

@@ -1,50 +1,83 @@
-Questions:
 
-How to get rid of the flash message once going to a new page
-How to edit the colors of the flash message
-
-
-  - how to do a flash message just when email is already used
+Use  https://materializecss.com/color.html to edit the CSS 
+https://materializecss.com/color.html
+https://www.jquery-az.com/9-styles-of-materialize-buttons-to-use-in-your-web-projects/
 
 
-<input type="text" minlength="4" maxlength="100" size="50" name="ingredients" value="<%= @recipe.ingredients %>"/> 
-<input type="text" minlength="4" maxlength="100" size="50" name="instructions" value="<%= @recipe.instructions%>"/> 
+need to put class="blacl white-text" in each html element you 
+want to edit
+black - background white-text - the text is white
 
 
-<h2> Ingredients: </h2>
-// <% ingredients = @recipe.ingredients.split(",") %>
-     <% ingredients.each do |ingredient| %>
- <ul> 
-    <li> - <%= ingredient %>   </li>
-</ul>
-  <% end %>
+have to remove from layour.erb - to get original styling
+and all class="waves-effect waves-light btn" from link tags
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+          
+
+
+NEED TO FIX NEW INGREDIENT PAGE OR GO BACK TO THE WAY YOU HAD IT
+
+
+
+
+
+
+
+Live code: added this to welcome.erb to show all the Recipes
+that exist already on the welcome page
+Can only see the recipe if logged in
+
+<h3>Recipes: </h3>
+<div class="white-text">
+<% @recipes.each do |recipe| %>
+  <a href="/recipes/<%=recipe.id%>"><%= recipe.recipe_name %> </a>
+<% end %>
+</div>
+<br>
 <br>
 
- <input type="text" minlength="4" maxlength="100" size="60" name="instructions" id="instructions" placeholder="Please separate each new instruction with a period ( . ) " /> 
 
-How to submit a list of items in an html form?
-    Is there a way to do a numbered list or bigger text box (textera)
 
-How to display the previous ingredients and instructions on the edit form? 
-  with textera this doesnt work (a bigger text box) but it does with input
+
+
+
+Questions:
+
+How to add a flash message when a user tries to sign up with an email that 
+already has an account
+
+How to edit the colors of the flash message
+
 
 How to move the  "edit" button more to the right when looking at your ingredients
 
 
 Adding a picture
 
-recipe-rolodex (cd into it i forked it)
 
-<p>
-    <label for="image_url">Image URL: </label>
-    <input type="url" id="image_url" name="recipe[image_url]" size="50" /><br />
-    <small>
-      <strong class="important-note">Note: </strong>
-      Check out the Home page for instructions on how to upload an image here.
-    </small>
+Extra features:
+If cooktime is optional, a pop up when they go to submit a recipe and says are you sure you don’t want to put a cook time?
+Can upload a picture of the food (optional)
+Cook time is minutes - so converting if over than 60 minutes to display hour and minutes
+Add the level (new migrations - add column or whatever) can check easy medium hard on how it is to prepare
+Adding the link to the recipe
 
 
 
 
 
+the commands are you can type this in the terminal:
+lsof -i tcp:9393
+then you will get a list of ports and numbers
+EX: COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+                ruby    67613 Jess   15u  IPv4 0xeeae4cfc8150955d      0t0  TCP localhost:9393 
+
+ then you want to type in Type in the terminal:
+kill -9 ______
+but you can fill in the blanks with the number that is displayed next to the 9393 port
+EX: kill -9 67613
 

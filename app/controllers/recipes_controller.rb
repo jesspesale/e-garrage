@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
         authentication_required
     end
 
+    # Index
     get '/recipes' do
         if logged_in? #bc a user has many recipes we have .recipes
             @recipes = current_user.recipes 
@@ -12,12 +13,12 @@ class RecipesController < ApplicationController
         end
     end
     
-    # Create
+    # New
     get '/recipes/new' do
         erb :'/recipes/new'
     end
 
-    # Read
+    # Read / Show
     get '/recipes/:id' do
         if logged_in?
             @recipe = current_user.recipes.find(params[:id])
@@ -29,6 +30,7 @@ class RecipesController < ApplicationController
         end
     end
 
+    # Create
     post '/recipes' do
         # binding.pry
         # params[:ingredients].split("\r\n").join(",")
@@ -51,7 +53,7 @@ class RecipesController < ApplicationController
         end
     end
 
-    # Update
+    # Edit
     get '/recipes/:id/edit' do 
         if logged_in?
             @recipe = Recipe.find_by_id(params[:id])
@@ -66,6 +68,7 @@ class RecipesController < ApplicationController
         end
     end
 
+    # Update
     patch '/recipes/:id' do
         if logged_in?
             @recipe = Recipe.find(params[:id])
