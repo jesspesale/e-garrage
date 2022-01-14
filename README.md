@@ -6,7 +6,7 @@ As someone who is new to cooking (and baking), I am constantly looking up new re
 A user can create an account and keep track of recipes by their name, ingredients, instructions and cook time. They can always add new recipes and edit or delete existing recipes.
 <br>
 
-## Instalattion 
+## Installation 
 You can fork and clone this repo from https://github.com/jesspesale/recipe-safe. Open it up in the proper directory, run bundle install (to install all gems) and run shotgun to start the server.
 
 ## Contributing
